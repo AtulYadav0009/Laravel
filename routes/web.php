@@ -63,3 +63,5 @@ Route::controller(StudentController::class)->group(function () {
 // Route::get('about/{name}',[StudentController::class,'about']);
 
 Route::get('/std',[StudentController::class,'GetData']);
+
+Route::get('/api',[UserController::class,'GetUserApi']);

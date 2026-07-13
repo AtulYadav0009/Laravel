@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\HTTP;
 use App\Rules\NoAdminWord;
 
 
@@ -64,5 +65,11 @@ class usercontroller extends Controller
 
     function test(){
         return "test";
+    }
+
+     function GetUserApi(){
+        // $response = Http::get("https://jsonplaceholder.typicode.com/users/1");
+        // view('users', ['data'=>$response]);
+        return view('users');
     }
 }
