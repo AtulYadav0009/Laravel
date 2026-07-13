@@ -19,4 +19,9 @@ class StudentController extends Controller
      function about($name){
         return $name;
     }
+
+    function GetData(){
+        $student  = \App\Models\Studentmodel::all();
+        return view('studentmodel',['Dtaaa' => $student]);
+    }
 }

@@ -24,7 +24,7 @@ Route::get('user-home', [usercontroller::class, 'userhome']);
 
 Route::get('wp-admin', [usercontroller::class, 'adminlogin']);
 
-Route::get('Users', [usercontroller::class, 'users']);
+Route::get('users', [usercontroller::class, 'test']);
 
 Route::get('/form', function () {
     return view('form');
@@ -61,3 +61,5 @@ Route::controller(StudentController::class)->group(function () {
 });
 
 // Route::get('about/{name}',[StudentController::class,'about']);
+
+Route::get('/std',[StudentController::class,'GetData']);
