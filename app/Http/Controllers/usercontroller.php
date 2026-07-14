@@ -113,11 +113,11 @@ class usercontroller extends Controller
         //     return "Updated";
         // } else {
         //     return "Not updated";
-        // }
+        // }    
 
         //  $result = DB::table('users')->where('name', 'Monyyy')->delete();
         // return $result;
-    }
+    }   
 
     function loginsubmit(Request  $request)
     {
