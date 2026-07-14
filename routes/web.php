@@ -69,3 +69,9 @@ Route::get('/api',[UserController::class,'GetUserApi']);
 Route::get('/Query',[UserController::class,'Query']);
 
 Route::get('/any', [StudentController::class,'any']);
+
+Route::view('login','login');
+
+Route::view('profile','profile');
+
+Route::post('loginsubmit',[UserController::class,'loginsubmit']);

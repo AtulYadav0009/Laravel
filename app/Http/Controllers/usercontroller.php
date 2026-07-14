@@ -118,4 +118,11 @@ class usercontroller extends Controller
         //  $result = DB::table('users')->where('name', 'Monyyy')->delete();
         // return $result;
     }
+
+    function loginsubmit(Request  $request)
+    {
+        $UserID = $request->input('UserID');
+        $request->session()->put('UserID', $UserID);
+        return redirect('profile');
+    }
 }
