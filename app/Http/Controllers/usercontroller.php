@@ -125,4 +125,13 @@ class usercontroller extends Controller
         $request->session()->put('UserID', $UserID);
         return redirect('profile');
     }
+
+    function files(Request $req){
+        // $path = "ABCD";
+        $path = $req->file('file')->storeAs('/public' ,'dummy.png');
+        $array = explode('/',$path);
+        $filename = $array[1];
+        return view('file' , ['path'=>$filename]);
+        // return $path;
+    }
 }

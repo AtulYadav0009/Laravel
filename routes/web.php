@@ -15,7 +15,7 @@ Route::get('/home', function () {
 
 Route::get('/about', function () {
     return view('about');
-})->middleware('Checkone');
+});
 
 
 Route::get('user-about', [usercontroller::class, 'userabout']);
@@ -75,3 +75,7 @@ Route::view('login','login');
 Route::view('profile','profile');
 
 Route::post('loginsubmit',[UserController::class,'loginsubmit']);
+
+Route::view('files','file');
+
+Route::post('files', [UserController::class,'files']);
