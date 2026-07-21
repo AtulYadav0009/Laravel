@@ -4,6 +4,8 @@ use App\Http\Controllers\usercontroller;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use Psr\Container\NotFoundExceptionInterface;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,10 +15,15 @@ Route::get('/home', function () {
     return view('home');
 });
 
+// Route::get('/about/{lan?}/{name}', function ($lan,$name) {
+//     App::setLocale($lan);
+//     return view('about' , compact('name'));
+// });
+
 Route::get('/about', function () {
+
     return view('about');
 });
-
 
 Route::get('user-about', [usercontroller::class, 'userabout']);
 
@@ -54,28 +61,35 @@ Route::prefix('student/india')->group(function () {
 // Route::get('/delete', [StudentController::class, 'Delete']);
 
 Route::controller(StudentController::class)->group(function () {
-    Route::get('/show','show');
-    Route::get('/add','add');
-    Route::get('/delete','Delete');
-    Route::get('about/{name}','about');
+    Route::get('/show', 'show');
+    Route::get('/add', 'add');
+    Route::get('/delete', 'Delete');
+    Route::get('about/{name}', 'about');
 });
 
 // Route::get('about/{name}',[StudentController::class,'about']);
 
-Route::get('/std',[StudentController::class,'GetData']);
+Route::get('/std', [StudentController::class, 'GetData']);
 
-Route::get('/api',[UserController::class,'GetUserApi']);
+Route::get('/api', [UserController::class, 'GetUserApi']);
 
-Route::get('/Query',[UserController::class,'Query']);
+Route::get('/Query', [UserController::class, 'Query']);
 
-Route::get('/any', [StudentController::class,'any']);
+Route::get('/any', [StudentController::class, 'any']);
 
-Route::view('login','login');
+Route::view('login', 'login');
 
-Route::view('profile','profile');
+Route::view('profile', 'profile');
 
-Route::post('loginsubmit',[UserController::class,'loginsubmit']);
+Route::post('loginsubmit', [UserController::class, 'loginsubmit']);
 
-Route::view('files','file');
+Route::view('files', 'file');
 
-Route::post('files', [UserController::class,'files']);
+Route::post('files', [UserController::class, 'files']);
+
+Route::get('language/{lang}', function ($lang) {
+    Session::put('lang',$lang);
+
+    return redirect('about');
+   
+});
