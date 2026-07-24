@@ -87,9 +87,17 @@ Route::view('files', 'file');
 
 Route::post('files', [UserController::class, 'files']);
 
-Route::get('language/{lang}', function ($lang) {
-    Session::put('lang',$lang);
+// Route::get('language/{lang}', function ($lang) {
+//     Session::put('lang',$lang);
 
-    return redirect('about');
-   
+//     return redirect('about');
+
+// });
+
+
+Route::middleware('lang')->group(function () {
+    Route::get('/about', function () {
+
+        return view('about');
+    });
 });
