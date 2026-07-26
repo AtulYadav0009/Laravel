@@ -9,7 +9,7 @@
   <h2>Select Language</h2>
   <a href="http://127.0.0.1:8000/language/en" >English</a>
   <br><br>
-  <a href="http://127.0.0.1:8000/language/hi">HIndi</a>
+  <a href="http://127.0.0.1:8000/language/hi">Hindi</a>
 
   <!-- Very little is needed to make a happy life. - Marcus Aurelius -->
 </div>

@@ -15,6 +15,10 @@ class Setland
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if($request->session()->get('lang')){
+            \App::setLocale($request->session()->get('lang'));
+        }
+        echo "Setland Work";
         return $next($request);
     }
 }
