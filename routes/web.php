@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\usercontroller;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StdFormDBController;
 use Illuminate\Support\Facades\Route;
 use Psr\Container\NotFoundExceptionInterface;
 use Illuminate\Support\Facades\App;
@@ -101,4 +102,8 @@ Route::middleware('lang')->group(function () {
         return view('about');
     });
 });
-    
+
+Route::view('StdFormDB','StdFormDB');
+
+Route::POST('StdFormDB',[StdFormDBController::class, 'StdFormDB']);
+
