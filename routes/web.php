@@ -64,7 +64,7 @@ Route::prefix('student/india')->group(function () {
 Route::controller(StudentController::class)->group(function () {
     Route::get('/show', 'show');
     Route::get('/add', 'add');
-    Route::get('/delete', 'Delete');
+    // Route::get('/delete', 'Delete');
     Route::get('about/{name}', 'about');
 });
 
@@ -106,4 +106,10 @@ Route::middleware('lang')->group(function () {
 Route::view('StdFormDB','StdFormDB');
 
 Route::POST('StdFormDB',[StdFormDBController::class, 'StdFormDB']);
+
+Route::get('list',[StdFormDBController::class, 'listfunction']);
+Route::get('delete/{id}',[StdFormDBController::class, 'delete']);
+Route::get('edit/{id}',[StdFormDBController::class, 'edit']);
+
+
 
