@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\stdformdb;
 use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\String\TruncateMode;
 
 class StdFormDBController extends Controller
 {
@@ -42,6 +43,28 @@ class StdFormDBController extends Controller
     function edit($id)
     {
         $StdData = StdFormDB::find($id);
+        // return $StdData;
         return view('editor', ['data' => $StdData]);
+    }
+
+    function updatedata(Request $request, $id)
+    {
+        // return $request;
+        $StdData = StdFormDB::find($id);
+        // return $StdData;
+        $StdData->name = $request->name;
+        $StdData->email = $request->email;
+        $StdData->phone = $request->phone;
+
+        if ($StdData->save()) {
+            return redirect('list');
+        } else {
+            return "Problum";
+        }
+    }
+
+    function search(Request $request)
+    {
+        return $request->search;
     }
 }

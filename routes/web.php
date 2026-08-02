@@ -89,10 +89,9 @@ Route::view('files', 'file');
 Route::post('files', [UserController::class, 'files']);
 
 Route::get('language/{lang}', function ($lang) {
-    Session::put('lang',$lang);
+    Session::put('lang', $lang);
 
     return redirect('about');
-
 });
 
 
@@ -103,13 +102,14 @@ Route::middleware('lang')->group(function () {
     });
 });
 
-Route::view('StdFormDB','StdFormDB');
+Route::view('StdFormDB', 'StdFormDB');
 
-Route::POST('StdFormDB',[StdFormDBController::class, 'StdFormDB']);
+Route::POST('StdFormDB', [StdFormDBController::class, 'StdFormDB']);
 
-Route::get('list',[StdFormDBController::class, 'listfunction']);
-Route::get('delete/{id}',[StdFormDBController::class, 'delete']);
-Route::get('edit/{id}',[StdFormDBController::class, 'edit']);
+Route::get('list', [StdFormDBController::class, 'listfunction']);
+Route::get('delete/{id}', [StdFormDBController::class, 'delete']);
+Route::get('edit/{id}', [StdFormDBController::class, 'edit']);
 
+Route::put('updatedata/{id}', [StdFormDBController::class, 'updatedata']);
 
-
+Route::get('search', [StdFormDBController::class, 'search']);

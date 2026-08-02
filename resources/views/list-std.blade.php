@@ -2,6 +2,12 @@
     <h1>List Student</h1>
 </div>
 
+<form action="search" method="get">
+    <input type="text" name="search" id="search" placeholder="Search AnyThing">
+    <button>Search</button>
+</form>
+
+
 <table border="1">
     <tr>
         <td>Name</td>
@@ -22,6 +28,6 @@
 </table>
 
 
-<pre>
+<!-- <pre>
 {{print_r($students)}}
-</pre>
+</pre> -->
