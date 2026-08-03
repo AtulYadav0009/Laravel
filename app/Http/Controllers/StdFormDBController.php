@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\stdformdb;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\ViewErrorBag;
 use Symfony\Component\String\TruncateMode;
 
 class StdFormDBController extends Controller
@@ -65,6 +66,20 @@ class StdFormDBController extends Controller
 
     function search(Request $request)
     {
-        return $request->search;
+        // return $request->search;
+        $searchdata = StdFormDB::where('name', 'like', "%$request->search%")->get();
+        // return $searchdata;
+        return view('list-std', ['students' => $searchdata, 'search' =>$request->search]);
+    }
+
+    function MultiDelete(Request $request){
+        // return $request->ids;
+        $IsMultiDeleted =  StdFormDB::destroy( $request->ids);
+        if($IsMultiDeleted){
+           return redirect('list');
+        }
+        else{
+            echo "NO Deleted Multiple";
+        }
     }
 }

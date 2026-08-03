@@ -3,6 +3,7 @@
 use App\Http\Controllers\usercontroller;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StdFormDBController;
+use App\Http\Controllers\ImgController;
 use Illuminate\Support\Facades\Route;
 use Psr\Container\NotFoundExceptionInterface;
 use Illuminate\Support\Facades\App;
@@ -113,3 +114,11 @@ Route::get('edit/{id}', [StdFormDBController::class, 'edit']);
 Route::put('updatedata/{id}', [StdFormDBController::class, 'updatedata']);
 
 Route::get('search', [StdFormDBController::class, 'search']);
+
+Route::post('MultiDelete', [StdFormDBController::class, 'MultiDelete']);
+
+Route::view('upload','upload');
+
+Route::POST('UploadImg',[ImgController::class, 'UploadImg']);
+
+Route::view('imgdisplay','ImgDisplay');
