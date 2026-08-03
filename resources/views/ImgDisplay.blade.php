@@ -1,4 +1,9 @@
 <div>
-    
-    <img src="{{url('storage/images/OXDdgVtCKhvzns0YKZLkPhTwRorn6gNB93aBerYb.png')}}" alt="img" width="150">
+    <!-- <pre>
+    {{ print_r($images)}}
+    </pre> -->
+    @foreach($images as $img)
+
+    <img src="{{url('storage/images/'.$img->path)}}" alt="img" width="150">
+    @endforeach
 </div>

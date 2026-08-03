@@ -121,4 +121,9 @@ Route::view('upload','upload');
 
 Route::POST('UploadImg',[ImgController::class, 'UploadImg']);
 
-Route::view('imgdisplay','ImgDisplay');
+Route::get('imgdisplay',[ImgController::class, 'ShowImg']);
+
+
+Route::view('home1', 'home1');
+
+Route::view('about1', 'about1');
