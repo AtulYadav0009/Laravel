@@ -117,13 +117,21 @@ Route::get('search', [StdFormDBController::class, 'search']);
 
 Route::post('MultiDelete', [StdFormDBController::class, 'MultiDelete']);
 
-Route::view('upload','upload');
+Route::view('upload', 'upload');
 
-Route::POST('UploadImg',[ImgController::class, 'UploadImg']);
+Route::POST('UploadImg', [ImgController::class, 'UploadImg']);
 
-Route::get('imgdisplay',[ImgController::class, 'ShowImg']);
-
+Route::get('imgdisplay', [ImgController::class, 'ShowImg']);
 
 Route::view('home1', 'home1');
 
 Route::view('about1', 'about1');
+
+Route::view('home2', 'home2');
+
+Route::view('login2', 'login2');
+
+Route::get('smalllatter', [ImgController::class, 'smalllatter']);
+
+
+Route::get('save2', [ImgController::class, 'save2']);

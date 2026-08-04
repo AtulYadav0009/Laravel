@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Image;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Member;
 
 class ImgController extends Controller
 {
@@ -28,5 +29,21 @@ class ImgController extends Controller
         $img = new Image();
         $images = $img->all();
         return view('ImgDisplay', ['images' => $images]);
+    }
+
+    function smalllatter(Request $request)
+    {
+        return Member::all();
+    }
+
+    function save2(Request $request)
+    {
+       $member = new Member;
+       $member->name="atul";
+       $member->phone="12345";
+      if( $member->save()){
+        echo "Save Hua ";
+      }
+
     }
 }
