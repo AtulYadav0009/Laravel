@@ -38,12 +38,13 @@ class ImgController extends Controller
 
     function save2(Request $request)
     {
-       $member = new Member;
-       $member->name="atul";
-       $member->phone="12345";
-      if( $member->save()){
-        echo "Save Hua ";
-      }
-
+        $member = new Member;
+        $member->name = "atul";
+        $member->phone = "12345";
+        if ($member->save()) {
+            echo "Save Hua ";
+        }
     }
+
+    
 }

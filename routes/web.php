@@ -4,6 +4,7 @@ use App\Http\Controllers\usercontroller;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StdFormDBController;
 use App\Http\Controllers\ImgController;
+use App\Http\Controllers\OnetoOneConntroller;
 use Illuminate\Support\Facades\Route;
 use Psr\Container\NotFoundExceptionInterface;
 use Illuminate\Support\Facades\App;
@@ -133,5 +134,10 @@ Route::view('login2', 'login2');
 
 Route::get('smalllatter', [ImgController::class, 'smalllatter']);
 
-
 Route::get('save2', [ImgController::class, 'save2']);
+
+Route::get('onetoone', [OnetoOneConntroller::class, 'onetoone']);
+
+Route::get('onetomany', [OnetoOneConntroller::class, 'onetomany']);
+
+Route::get('manytoone', [OnetoOneConntroller::class, 'manytoone']);

@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class seller extends Model
 {
-    //
-    // Sudo Su
+    function productData(){
+        return $this->hasOne('App\Models\Product');
+    }
+
+     function productDataMany(){
+        return $this->hasMany('App\Models\Product');
+    }
+
 }
