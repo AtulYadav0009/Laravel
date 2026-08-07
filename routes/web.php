@@ -4,11 +4,13 @@ use App\Http\Controllers\usercontroller;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StdFormDBController;
 use App\Http\Controllers\ImgController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\OnetoOneConntroller;
 use Illuminate\Support\Facades\Route;
 use Psr\Container\NotFoundExceptionInterface;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -141,3 +143,7 @@ Route::get('onetoone', [OnetoOneConntroller::class, 'onetoone']);
 Route::get('onetomany', [OnetoOneConntroller::class, 'onetomany']);
 
 Route::get('manytoone', [OnetoOneConntroller::class, 'manytoone']);
+
+
+Route::get('mail', [MailController::class, 'sendmail']);
+
