@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Psr\Container\NotFoundExceptionInterface;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 
 Route::get('/', function () {
@@ -147,3 +148,19 @@ Route::get('manytoone', [OnetoOneConntroller::class, 'manytoone']);
 
 Route::get('mail', [MailController::class, 'sendmail']);
 
+Route::POST('formmail', [MailController::class, 'formmail']);
+Route::view('formmail', 'formMail');
+
+Route::get('fluentstr', function () {
+    $strtest = "i am sudo ji";
+    //    $strtest = Str::ucfirst(trim($strtest));
+    //    $strtest = Str::camel(trim($strtest));
+
+    $strtest = Str::of($strtest)->ucfirst($strtest)->camel(trim($strtest));
+
+    echo  $strtest;
+});
+
+Route::get('routemodelbinding/{key:name}', [MailController::class, 'routemodelbinding']);
+
+Route::get('inlineblade', [MailController::class, 'inlineblade']);
