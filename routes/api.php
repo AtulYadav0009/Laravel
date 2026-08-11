@@ -16,3 +16,9 @@ Route::get('/test', function () {
 Route::get('student',[StudentController::class , 'student']);
 
 Route::post('add',[StudentController::class , 'add2']);
+
+Route::post('AddStudent',[StudentController::class , 'AddStudent']);
+
+Route::put('UpdateStudent',[StudentController::class , 'UpdateStudent']);
+
+

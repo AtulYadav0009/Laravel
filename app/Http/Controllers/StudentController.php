@@ -10,43 +10,81 @@ use \App\Models\User;
 
 class StudentController extends Controller
 {
-    function show(){
+    function show()
+    {
         return "List Of Students";
     }
-    function add(){
+    function add()
+    {
         return "Add Student";
     }
-    function delete(){
+    function delete()
+    {
         return "Delete Student";
     }
 
-     function about($name){
+    function about($name)
+    {
         return $name;
     }
 
-    function GetData(){
+    function GetData()
+    {
         $student  = \App\Models\Studentmodel::all();
-        return view('studentmodel',['Dtaaa' => $student]);
+        return view('studentmodel', ['Dtaaa' => $student]);
     }
 
-    function query(){
+    function query()
+    {
         $response = Studentmodel::all();
         return $response;
     }
 
-    function any(){
+    function any()
+    {
         return "This  is Any Function";
     }
 
-     function form(){
+    function form()
+    {
         return "This  is Any Function";
     }
 
-    function student(){
+    function student()
+    {
         return Studentmodel::all();
     }
 
-      function add2(Request $req){
+    function add2(Request $req)
+    {
         return $req->input();
+    }
+
+    function AddStudent(Request $req)
+    {
+        $student = new Studentmodel;
+        $student->name = $req->name;
+        $student->email = $req->email;
+        $student->phone = $req->phone;
+
+        if ($student->save()) {
+            return ['result' => 'Success'];
+        } else {
+            return ['result' => 'Failed'];
+        }
+    }
+
+    function UpdateStudent(Request $req)
+    {
+        $student = Studentmodel::find($req->id);
+        $student->name = $req->name;
+        $student->email = $req->email;
+        $student->phone = $req->phone;
+
+         if ($student->save()) {
+            return ['result' => 'Success'];
+        } else {
+            return ['result' => 'Failed'];
+        }
     }
 }
