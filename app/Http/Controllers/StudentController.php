@@ -41,4 +41,12 @@ class StudentController extends Controller
      function form(){
         return "This  is Any Function";
     }
+
+    function student(){
+        return Studentmodel::all();
+    }
+
+      function add2(Request $req){
+        return $req->input();
+    }
 }

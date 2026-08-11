@@ -8,3 +8,5 @@ class Studentmodel extends Model
 {
     protected $table  = 'studentmodels12';
 }
+
+

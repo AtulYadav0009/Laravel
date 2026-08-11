@@ -164,3 +164,4 @@ Route::get('fluentstr', function () {
 Route::get('routemodelbinding/{key:name}', [MailController::class, 'routemodelbinding']);
 
 Route::get('inlineblade', [MailController::class, 'inlineblade']);
+
