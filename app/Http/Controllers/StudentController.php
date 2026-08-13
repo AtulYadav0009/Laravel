@@ -81,10 +81,23 @@ class StudentController extends Controller
         $student->email = $req->email;
         $student->phone = $req->phone;
 
-         if ($student->save()) {
+        if ($student->save()) {
             return ['result' => 'Success'];
         } else {
             return ['result' => 'Failed'];
         }
+    }
+
+
+
+    function DeleteStudent($id)
+    {
+        // return $id;
+        $student = Studentmodel::destroy($id);
+
+        if ($student) {
+            return ["result" => "Data Deleted"];
+        } else
+            return ["result" => "Data Not  Deleted"];
     }
 }
