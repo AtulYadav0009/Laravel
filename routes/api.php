@@ -23,4 +23,7 @@ Route::put('UpdateStudent',[StudentController::class , 'UpdateStudent']);
 
 Route::delete('DeleteStudent/{id}',[StudentController::class , 'DeleteStudent']);
 
+Route::get('Search/{name}',[StudentController::class , 'Search']);
+
+
 

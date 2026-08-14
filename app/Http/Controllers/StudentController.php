@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use \App\Models\Studentmodel;
 use \App\Models\User;
-
+use PHPUnit\Framework\MockObject\ReturnValueNotConfiguredException;
 
 class StudentController extends Controller
 {
@@ -99,5 +99,10 @@ class StudentController extends Controller
             return ["result" => "Data Deleted"];
         } else
             return ["result" => "Data Not  Deleted"];
+    }
+
+    function Search($name)
+    {
+        return $name;
     }
 }
