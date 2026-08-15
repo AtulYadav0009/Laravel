@@ -3,6 +3,7 @@
 use App\Http\Controllers\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ResourceController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -26,4 +27,4 @@ Route::delete('DeleteStudent/{id}',[StudentController::class , 'DeleteStudent'])
 Route::get('Search/{name}',[StudentController::class , 'Search']);
 
 
-
+Route::resource('member',ResourceController::class);

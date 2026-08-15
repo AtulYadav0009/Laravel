@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use \App\Models\Studentmodel;
 use \App\Models\User;
 use PHPUnit\Framework\MockObject\ReturnValueNotConfiguredException;
+use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
 {
@@ -62,15 +63,25 @@ class StudentController extends Controller
 
     function AddStudent(Request $req)
     {
-        $student = new Studentmodel;
-        $student->name = $req->name;
-        $student->email = $req->email;
-        $student->phone = $req->phone;
-
-        if ($student->save()) {
-            return ['result' => 'Success'];
+        $rule = array(
+            'name' => 'required | min:5 | max:10',
+            'email' => 'required | email',
+            'phone' => 'required'
+        );
+        $validation = Validator::make($req->all(), $rule);
+        if ($validation->fails()) {
+            return $validation->errors();
         } else {
-            return ['result' => 'Failed'];
+            $student = new Studentmodel;
+            $student->name = $req->name;
+            $student->email = $req->email;
+            $student->phone = $req->phone;
+
+            if ($student->save()) {
+                return ['result' => 'Success'];
+            } else {
+                return ['result' => 'Failed'];
+            }
         }
     }
 
@@ -103,6 +114,8 @@ class StudentController extends Controller
 
     function Search($name)
     {
-        return $name;
+        $student = Studentmodel::where('name', 'like', "%$name%")->get();
+
+        return $student;
     }
 }
