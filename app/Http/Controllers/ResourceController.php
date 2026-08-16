@@ -13,7 +13,7 @@ class ResourceController extends Controller
     public function index()
     {
         // Sudo Su
-       return Studentmodel::all();
+        return Studentmodel::all();
     }
 
     /**
@@ -22,7 +22,7 @@ class ResourceController extends Controller
     public function create()
     {
         // Sudo Su
-         return [ 'result' => 'Create  Success'];
+        return ['result' => 'Create  Success'];
     }
 
     /**
@@ -31,7 +31,7 @@ class ResourceController extends Controller
     public function store(Request $request)
     {
         // Sudo Su
-        return [ 'result' => 'Store Success'];
+        return ['result' => 'Store Success'];
     }
 
     /**
@@ -56,7 +56,7 @@ class ResourceController extends Controller
     public function update(Request $request, string $id)
     {
         // Sudo Su
-         return [ 'result' => 'Update Success'];
+        return ['result' => 'Update Success'];
     }
 
     /**
